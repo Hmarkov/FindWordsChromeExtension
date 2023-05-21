@@ -1,0 +1,114 @@
+.container {
+    width: 300px;
+    background-color: #0a66c2;
+  }
+ 
+  .title {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+  }
+  
+  .textbox {
+    width: 20%;
+    font-size: 12px;
+    margin: 0;
+    padding: 0px 2px;
+  }
+  
+  .textbox:focus {
+    outline: 0;
+    border-color: #66afe9;
+  }
+  
+  .jobs {
+    margin: 5px 5px;
+    padding: 3px;
+  }
+  
+  .job {
+    display: flex;
+    border-bottom-color: #00254d;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-radius: 0.8rem;
+    padding: 3px;
+    padding-bottom: 7px;
+    margin-bottom: 7px;
+    font-weight: bold;
+  }
+  
+  .job-id {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+  }
+  
+  .job-controls img {
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  .job-controls {
+    flex: auto;
+    text-align: center;
+  }
+
+
+
+  .rainbow {
+    display: flex;
+    border-radius: 1px;
+    padding: 2px;
+    margin: 5px;
+    display: grid;
+    place-content: center;
+    /* text-align: center; */
+  
+  
+    --border-size: 0.1rem;
+    border: var(--border-size) solid transparent;
+  
+    /* Paint an image in the border */
+    border-image: conic-gradient(
+        from var(--angle),
+        black 0deg 90deg,
+        white 90deg 180deg,
+        black 180deg 270deg,
+        white 270deg 360deg
+      )
+      1 stretch;
+    /* background: rgb(255 255 255 / var(--opacity)); */
+  }
+  
+  /* Animate when Houdini is available */
+  @supports (background: paint(houdini)) {
+    @property --opacity {
+      syntax: "<number>";
+      initial-value: 0.3;
+      inherits: false;
+    }
+  
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+  
+    @keyframes opacityChange {
+      to {
+        --opacity: 1;
+      }
+    }
+  
+    @keyframes rotate {
+      to {
+        --angle: 360deg;
+      }
+    }
+  
+    .rainbow {
+      animation: rotate 4s linear infinite, opacityChange 3s infinite alternate;
+    }

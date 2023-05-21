@@ -1,0 +1,28 @@
+{
+    "name": "Words Finder",
+    "version": "0.1.0",
+    "description": "Extension to highlight words on eny website",
+    "permissions": ["tabs", "activeTab"],
+    "host_permissions": ["<all_urls>"],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["contentscript.js"]
+      }
+    ],
+    "action": {
+      "default_icon": {
+        "16": "icons/linked16.png",
+        "24": "icons/linked24.png",
+        "32": "icons/linked32.png",
+        "48": "icons/linked48.png",
+        "64": "icons/linked64.png",
+        "128": "icons/linked128.png"
+      },
+      "default_title": "Words Finder",
+      "default_popup": "popup.html"
+    },
+    "manifest_version": 3
+  }
+
+
